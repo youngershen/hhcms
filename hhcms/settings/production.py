@@ -7,11 +7,21 @@
 from hhcms.settings.base import *
 
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = ['127.0.0.1']
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': env.db_url('DEFAULT_DATABASE_URL')
 }
 
-from pymysql import escape_dict
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env.str('SECRET_KEY')
+
+WSGI_APPLICATION = 'hhcms.wsgi.application'
+
+ROOT_URLCONF = 'hhcms.urls.patterns'

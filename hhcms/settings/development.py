@@ -4,3 +4,5 @@
 # CELL : 13811754531
 # WECHAT : 13811754531
 from hhcms.settings.production import *
+
+DEBUG = True
