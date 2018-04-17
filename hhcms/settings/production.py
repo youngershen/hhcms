@@ -25,3 +25,9 @@ SECRET_KEY = env.str('SECRET_KEY')
 WSGI_APPLICATION = 'hhcms.wsgi.application'
 
 ROOT_URLCONF = 'hhcms.urls.patterns'
+
+INSTALLED_APPS += [
+    'hhcms.apps.common'
+    'hhcms.apps.account',
+    'hhcms.apps.content'
+]
