@@ -4,26 +4,45 @@
 # EMAIL : younger.shen@hotmail.com
 # CELL : 13811754531
 # WECHAT : 13811754531
+from abc import ABC, abstractmethod
 
 
-class CommonPermisson:
+class CommonPermisson(ABC):
 
+    @abstractmethod
     def get_permission(self):
-        raise NotImplementedError()
+        pass
 
+    @abstractmethod
     def post_permission(self):
-        raise NotImplementedError()
+        pass
 
     def check_permission(self):
-        return True
+        pass
 
 
 class APIPermission(CommonPermisson):
 
-    @staticmethod
-    def put_permission():
-        return True
+    @abstractmethod
+    def put_permission(self):
+        pass
 
-    @staticmethod
-    def delete_permission():
-        return True
+    @abstractmethod
+    def delete_permission(self):
+        pass
+
+    @abstractmethod
+    def patch_permission(self):
+        pass
+
+    @abstractmethod
+    def head_permission(self):
+        pass
+
+    @abstractmethod
+    def options_permission(self):
+        pass
+
+    @abstractmethod
+    def trace_permission(self):
+        pass
