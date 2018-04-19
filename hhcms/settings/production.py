@@ -27,7 +27,8 @@ WSGI_APPLICATION = 'hhcms.wsgi.application'
 ROOT_URLCONF = 'hhcms.urls.patterns'
 
 INSTALLED_APPS += [
-    'hhcms.apps.common'
+    'hhcms.apps.common',
     'hhcms.apps.account',
-    'hhcms.apps.content'
+    'hhcms.apps.content',
+    'hhcms.apps.seo'
 ]
