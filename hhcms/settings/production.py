@@ -30,5 +30,6 @@ INSTALLED_APPS += [
     'hhcms.apps.common',
     'hhcms.apps.account',
     'hhcms.apps.content',
-    'hhcms.apps.seo'
+    'hhcms.apps.seo',
+    'hhcms.apps.wechat'
 ]
