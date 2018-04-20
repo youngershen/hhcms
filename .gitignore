@@ -6,6 +6,5 @@
 *.pyc
 .env
 
-logs
 temp
 assets
