@@ -6,6 +6,7 @@
 # WECHAT : 13811754531
 import os
 import environ
+from datetime import datetime
 
 
 def get_base_path():
@@ -20,3 +21,23 @@ def get_env(file_name='.env'):
     env_path = os.path.join(abs_path, file_name)
     env.read_env(env_path)
     return env
+
+
+def get_log_path():
+    env = get_env()
+    path = env.str('LOG_DIR')
+    if not path.startswith('/'):
+        path = os.path.join(get_base_path(), path)
+
+    return path
+
+
+def get_log_file():
+    now = datetime.utcnow()
+    path = get_log_path()
+    path = os.path.join(path, now.strftime('%Y/%m'))
+
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    return os.path.join(path, now.strftime('%d.log'))
