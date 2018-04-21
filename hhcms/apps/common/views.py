@@ -12,32 +12,32 @@ class View(Context, Permisson, Response, TemplateResponseMixin, RedirectResponse
     template_name = 'default/index.html'
     http_method_names = ['get', 'post', 'put', 'delete']
 
-    def get_context(self):
+    def get_context(self, request, *args, **kwargs):
         pass
 
-    def post_context(self):
+    def post_context(self, request, *args, **kwargs):
         pass
 
-    def put_context(self):
+    def put_context(self, request, *args, **kwargs):
         pass
 
-    def delete_context(self):
+    def delete_context(self, request, *args, **kwargs):
         pass
 
 
 class API(APIContext, APIPermission, View):
     http_method_names = ['get', 'post', 'put', 'delete']
 
-    def patch_context(self):
+    def patch_context(self, request, *args, **kwargs):
         pass
 
-    def head_context(self):
+    def head_context(self, request, *args, **kwargs):
         pass
 
-    def options_context(self):
+    def options_context(self, request, *args, **kwargs):
         pass
 
-    def trace_context(self):
+    def trace_context(self, request, *args, **kwargs):
         pass
 
 

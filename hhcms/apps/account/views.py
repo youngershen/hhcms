@@ -1,7 +1,6 @@
 from hhcms.apps.common.views import View
 import logging
 logger = logging.getLogger(__name__)
-print(__name__)
 
 
 class Register(View):

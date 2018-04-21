@@ -170,5 +170,5 @@ class APIContext(Context):
         pass
 
     @abstractmethod
-    def trace_context(self):
+    def trace_context(self, request, *args, **kwargs):
         pass
