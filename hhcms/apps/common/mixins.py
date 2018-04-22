@@ -12,6 +12,8 @@ from django.http.response import JsonResponse, \
     HttpResponseGone
 from django.urls.base import reverse
 
+from hhcms.apps.config.models import Config as ConfigModel
+
 
 class RedirectResponse:
     permanent = False
@@ -172,3 +174,15 @@ class APIContext(Context):
     @abstractmethod
     def trace_context(self, request, *args, **kwargs):
         pass
+
+
+class Config:
+    config_names = ['site_name', 'domain_name', 'theme']
+
+    def get_config(self):
+        records = ConfigModel.objects.filter(name__in=self.config_names)
+        configs = {}
+        for record in records:
+            configs.update({record.name: record.value})
+
+        return configs

@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'default/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'default/css/default.css' %}">
+
+    <script src="{% static 'default/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'default/js/popper.min.js' %}"></script>
+    <script src="{% static 'default/js/default.js' %}"></script>
+
+    <title> {{ site_name }} {% block title %} {% endblock %} </title>
+
+    {% block head %} {% endblock head %}
+</head>
+
+<body>
+{% block body %} {% endblock body %}
+</body>
+
+<footer>
+    {% block footer %} {% endblock footer %}
+</footer>
+
+</html>
