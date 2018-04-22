@@ -3,20 +3,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Register(View):
-    http_method_names = ['get', 'post']
-
-
-class RegisterWithUsername(Register):
-    template_name = 'sdf'
+class RegisterWithUsername(View):
 
     def get_context(self, request, *args, **kwargs):
-        return self.to_template('sdf')
+        return self.to_template({})
 
 
-class Login(View):
+class LoginWithUsername(View):
     pass
 
 
 register = RegisterWithUsername.as_view()
-login = Login.as_view()
+login = LoginWithUsername.as_view()
