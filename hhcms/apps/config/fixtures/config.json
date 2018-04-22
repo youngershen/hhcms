@@ -1,0 +1,29 @@
+[
+  {
+    "model": "config.Config",
+    "pk": 1,
+    "fields": {
+      "name": "site_name",
+      "value": "HHCms Official Site",
+      "comment": "Site Name"
+    }
+  },
+  {
+    "model": "config.Config",
+    "pk": 2,
+    "fields": {
+      "name": "domain_name",
+      "value": "localhost",
+      "comment": "Domain Name"
+    }
+  },
+  {
+    "model": "config.Config",
+    "pk": 3,
+    "fields": {
+      "name": "theme",
+      "value": "default",
+      "comment": "Theme Name"
+    }
+  }
+]
