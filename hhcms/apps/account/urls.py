@@ -8,7 +8,9 @@
 from django.urls import path
 from hhcms.apps.account.views import register, login
 
+app_name = 'account'
+
 urlpatterns = [
-    path('register', register, name='account-register'),
-    path('login', login, name='account-login')
+    path('register', register, name='register'),
+    path('login', login, name='login')
 ]
