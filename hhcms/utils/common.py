@@ -46,7 +46,7 @@ def get_log_file():
 
 def get_static_dirs():
     base_dir = get_base_path()
-    theme_dir = os.path.join(base_dir, 'templates')
+    theme_dir = os.path.join(base_dir, 'themes')
     path = Path(theme_dir)
     dirs = [(p.name, str(p)) for p in path.iterdir()]
     return dirs

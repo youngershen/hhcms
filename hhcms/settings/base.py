@@ -51,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 
-TEMPLATES_DIR = [os.path.join(BASE_DIR, 'templates'), ]
+TEMPLATES_DIR = [os.path.join(BASE_DIR, 'themes'), ]
 
 TEMPLATES = [
     {
