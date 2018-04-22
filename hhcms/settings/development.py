@@ -38,7 +38,7 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
             'propagate': True,
-            'level': 'DEBUG'
+            'level': env.str('DJANGO_LOG_LEVEL')
         },
         'hhcms': {
             'handlers': ['console'],

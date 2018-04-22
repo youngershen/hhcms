@@ -41,3 +41,6 @@ def get_log_file():
         os.makedirs(path)
 
     return os.path.join(path, now.strftime('%d.log'))
+
+
+

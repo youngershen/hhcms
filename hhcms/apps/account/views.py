@@ -8,15 +8,15 @@ class Register(View):
 
 
 class RegisterWithUsername(Register):
-    template_name = ''
+    template_name = 'sdf'
 
     def get_context(self, request, *args, **kwargs):
-        return self.to_template('')
+        return self.to_template('sdf')
 
 
 class Login(View):
     pass
 
 
-register = Register.as_view()
+register = RegisterWithUsername.as_view()
 login = Login.as_view()
