@@ -8,7 +8,8 @@ class Register(View):
 
     def get_context(self, request, *args, **kwargs):
         # return self.to_json({'name': 'fucker', 'id': request.GET.get('id')})
-        logger.debug('tessfsdft test')
+        logger.error('tessfsdft test')
+        logger.critical('sfsdf')
         return self.to_template({})
 
 

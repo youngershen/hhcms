@@ -55,7 +55,7 @@ LOGGING = {
         },
         'file': {
             'level': 'INFO',
-            'class': 'logging.FileHandler',
+            'class': 'hhcms.utils.logging.FileHandler',
             'formatter': 'verbose',
             'filename': get_log_file(),
         }
