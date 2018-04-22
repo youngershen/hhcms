@@ -19,6 +19,9 @@ SECRET_KEY = '@1o4_s8+lfapx2%c7azo6orns9p-o#9(b$96mkf#+3+kt1(gl_'
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'])
 
+
+STATIC_DEV_ROOT = os.path.join(BASE_DIR, 'templates')
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

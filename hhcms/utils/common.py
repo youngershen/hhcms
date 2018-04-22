@@ -5,6 +5,7 @@
 # CELL : 13811754531
 # WECHAT : 13811754531
 import os
+from pathlib import Path
 import environ
 from datetime import datetime
 
@@ -43,4 +44,9 @@ def get_log_file():
     return os.path.join(path, now.strftime('%d.log'))
 
 
-
+def get_static_dirs():
+    base_dir = get_base_path()
+    theme_dir = os.path.join(base_dir, 'templates')
+    path = Path(theme_dir)
+    dirs = [(p.name, str(p)) for p in path.iterdir()]
+    return dirs

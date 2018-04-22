@@ -5,10 +5,11 @@
 # CELL : 13811754531
 # WECHAT : 13811754531
 
-from hhcms.utils.common import get_env, get_base_path, get_log_file
+from hhcms.utils.common import get_env, get_base_path, get_log_file, get_static_dirs
 
 __all__ = [
     'get_env',
     'get_base_path',
-    'get_log_file'
+    'get_log_file',
+    'get_static_dirs'
 ]

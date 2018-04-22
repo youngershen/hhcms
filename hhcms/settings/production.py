@@ -5,7 +5,7 @@
 # WECHAT : 13811754531
 
 from hhcms.settings.base import *
-from hhcms.utils import get_log_file
+from hhcms.utils import get_log_file, get_static_dirs
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -39,6 +39,10 @@ INSTALLED_APPS += [
 AUTH_USER_MODEL = 'account.User'
 
 DJANGO_LOG_LEVEL = env.str('DJANGO_LOG_LEVEL', default='ERROR')
+
+STATICFILES_DIRS = get_static_dirs()
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 LOGGING = {
     'version': 1,
