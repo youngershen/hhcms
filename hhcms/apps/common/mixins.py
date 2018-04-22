@@ -36,7 +36,7 @@ class RedirectResponse:
             url = "%s?%s" % (url, args)
         return url
 
-    def redirect(self, url, *args, **kwargs):
+    def redirect(self, url=None, *args, **kwargs):
         url = self.get_redirect_url(url, *args, **kwargs)
         if url:
             if self.permanent:
