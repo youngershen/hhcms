@@ -4,13 +4,14 @@ logger = logging.getLogger(__name__)
 
 
 class Register(View):
-    http_method_names = ['get']
+    http_method_names = ['get', 'post']
+
+
+class RegisterWithUsername(Register):
+    template_name = ''
 
     def get_context(self, request, *args, **kwargs):
-        # return self.to_json({'name': 'fucker', 'id': request.GET.get('id')})
-        logger.error('tessfsdft test')
-        logger.critical('sfsdf')
-        return self.to_template({})
+        return self.to_template('')
 
 
 class Login(View):
