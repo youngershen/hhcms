@@ -7,3 +7,4 @@ from hhcms.apps.common.models import Model
 class Config(Model):
     name = models.CharField(max_length=255, unique=True, verbose_name=_('Name'))
     value = models.TextField(blank=True, null=True, default='', verbose_name=_('Value'))
+    comment = models.CharField(max_length=255, blank=True, null=True, default='', verbose_name=_('Comment'))
