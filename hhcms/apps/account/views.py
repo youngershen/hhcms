@@ -8,12 +8,15 @@ class View(Config, BaseView):
     pass
 
 
+class Index(View):
+    template_name = 'index.html'
+
+
 class Register(View):
     template_name = 'register.html'
 
     def get_context(self, request, *args, **kwargs):
         data = self.get_config()
-        logger.debug(data)
         return self.to_template(data)
 
     def post_context(self, request, *args, **kwargs):
@@ -21,7 +24,14 @@ class Register(View):
 
 
 class Login(View):
-    pass
+    template_name = 'login.html'
+
+    def get_context(self, request, *args, **kwargs):
+        data = self.get_config()
+        return self.to_template(data)
+
+    def post_context(self, request, *args, **kwargs):
+        return self.redirect('/')
 
 
 register = Register.as_view()

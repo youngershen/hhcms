@@ -19,8 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('hhcms.apps.index.urls')),
+    path('account/', include('hhcms.apps.account.urls')),
     path('admin/', admin.site.urls),
-    path('account/', include('hhcms.apps.account.urls'))
 ]
 
 

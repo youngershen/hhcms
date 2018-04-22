@@ -54,8 +54,8 @@ class Response:
     def to_json(self, *args, **kwargs):
         return self.json_response(*args, **kwargs, encoder=self.json_encoder)
 
-    def to_template(self, *args, **kwargs):
-        return self.render_to_response(*args, **kwargs)
+    def to_template(self, context=None, *args, **kwargs):
+        return self.render_to_response(context=context, *args, **kwargs)
 
     def to_redirect(self, redirect_url=None, *args, **kwargs):
         url = redirect_url if redirect_url else self.redirect_url
