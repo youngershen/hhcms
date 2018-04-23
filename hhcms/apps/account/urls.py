@@ -6,11 +6,15 @@
 # WECHAT : 13811754531
 
 from django.urls import path
-from hhcms.apps.account.views import register, login
+from hhcms.apps.account.views import \
+    register, \
+    login, \
+    user_exists
 
 app_name = 'account'
 
 urlpatterns = [
     path('register', register, name='register'),
-    path('login', login, name='login')
+    path('login', login, name='login'),
+    path('user-exists', user_exists, name='user-exists')
 ]
