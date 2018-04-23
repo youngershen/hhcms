@@ -54,7 +54,8 @@ class UserExists(BaseView):
 
     def post_context(self, request, *args, **kwargs):
         username, email = self.get_payload(request)
-        return self.user_exists(username, email)
+        r = self.user_exists(username, email)
+        return self.to_json({'status': r})
 
     @staticmethod
     def get_payload(request):
@@ -64,9 +65,12 @@ class UserExists(BaseView):
 
     @staticmethod
     def user_exists(username, email):
-        query = Q(username=username) | Q(email=email)
-        users = User.objects.filter(query)
-        return True if users else False
+        if username or email:
+            query = Q(username=username) | Q(email=email)
+            users = User.objects.filter(query)
+            return True if users else False
+        else:
+            return False
 
 
 register = Register.as_view()

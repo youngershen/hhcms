@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="CSRF_TOKEN" content="{{ csrf_token }}">
+    <meta name="USER_EXISTS_URL" content="{% url 'account:user-exists' %}">
     <link rel="stylesheet" href="{% static 'default/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'default/css/default.css' %}">
     <script src="{% static 'default/js/jquery-3.3.1.min.js' %}"></script>
