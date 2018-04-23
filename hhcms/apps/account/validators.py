@@ -9,8 +9,8 @@ from validator import Validator
 
 
 class Register(Validator):
-    username = 'required|min_length:4'
-    email = 'required|email'
+    username = 'required|min_length:4|unique:hhcms.apps.account.models.User,username'
+    email = 'required|email|unique:hhcms.apps.account.models.User,email'
     password = 'required|min_length:8'
 
     messages = {
@@ -22,6 +22,7 @@ class Register(Validator):
             'email': _('invalid email address')
         },
         'password': {
-            'required': _('password is required')
+            'required': _('password is required'),
+            'min_length': _('password is shotter than 8')
         }
     }

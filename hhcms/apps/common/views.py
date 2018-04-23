@@ -7,11 +7,12 @@ from hhcms.apps.common.mixins import Permisson, \
     Context, \
     APIContext, \
     Response, \
-    RedirectResponse
+    RedirectResponse, \
+    FlashMessage
 from hhcms.utils.config import get_config
 
 
-class View(Context, Permisson, Response, TemplateResponseMixin, RedirectResponse, DjangoView):
+class View(FlashMessage, Context, Permisson, Response, TemplateResponseMixin, RedirectResponse, DjangoView):
     http_method_names = ['get', 'post', 'put', 'delete']
     template_name = 'index.html'
 

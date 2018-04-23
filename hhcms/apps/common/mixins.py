@@ -15,6 +15,17 @@ from django.urls.base import reverse
 from hhcms.apps.config.models import Config as ConfigModel
 
 
+class FlashMessage:
+    def set_message(self, message):
+        self.request.session['message'] = message
+
+    def get_message(self):
+        if 'message' in self.request.session:
+            return self.request.session.pop('message')
+        else:
+            return {}
+
+
 class RedirectResponse:
     permanent = False
     url = None
@@ -36,9 +47,12 @@ class RedirectResponse:
             url = "%s?%s" % (url, args)
         return url
 
-    def redirect(self, url=None, *args, **kwargs):
+    def redirect(self, url=None, message=None, *args, **kwargs):
         url = self.get_redirect_url(url, *args, **kwargs)
         if url:
+            if message:
+                self.set_message(message)
+
             if self.permanent:
                 return HttpResponsePermanentRedirect(url)
             else:

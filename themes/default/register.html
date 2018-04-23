@@ -13,21 +13,61 @@
                 <div class="form-group row">
                     <label for="username" class="col-sm-3 col-form-label">{% trans 'Username' %}</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="username" id="username" placeholder="{% trans 'Username' %}">
+                        <input type="text" class="form-control" name="username" id="username"
+                               placeholder="{% trans 'Username' %}">
                     </div>
                 </div>
+
+                {% if username.required %}
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <div class="alert alert-warning" role="alert">
+                            {{ username.required }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label">{% trans 'Email' %}</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="{% trans 'Email' %}">
+                        <input type="email" class="form-control" name="email" id="email"
+                               placeholder="{% trans 'Email' %}">
                     </div>
                 </div>
+                {% if email.required %}
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <div class="alert alert-warning" role="alert">
+                            {{ email.required }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="form-group row">
                     <label for="password" class="col-sm-3 col-form-label">{% trans 'Password' %}</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="{% trans 'Password' %}">
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="{% trans 'Password' %}">
                     </div>
                 </div>
+                {% if password.required %}
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <div class="alert alert-warning" role="alert">
+                            {{ password.required }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if password.min_length %}
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <div class="alert alert-warning" role="alert">
+                            {{ password.min_length }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="form-group row">
                     <div class="col-sm-9 offset-3">
                         <button class="btn btn-primary form-control ">{% trans 'Sign Up' %}</button>

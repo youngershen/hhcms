@@ -20,7 +20,9 @@ class Register(View):
     template_name = 'register.html'
 
     def get_context(self, request, *args, **kwargs):
+        message = self.get_message()
         data = self.get_config()
+        data.update(**message)
         return self.to_template(data)
 
     def post_context(self, request, *args, **kwargs):
@@ -28,11 +30,12 @@ class Register(View):
         validator.validate()
         if validator.status:
             logger.debug(request.POST)
+            message = {'ok': 'cool'}
         else:
             message = validator.get_message()
             logger.debug(message)
 
-        return self.redirect()
+        return self.redirect(message=message)
 
     def get_redirect_url(self, *args, **kwargs):
         return '/account/register'
