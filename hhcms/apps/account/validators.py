@@ -9,8 +9,8 @@ from validator import Validator
 
 
 class Register(Validator):
-    username = 'required|min_length:4|unique:hhcms.apps.account.models.User,username'
-    email = 'required|email|unique:hhcms.apps.account.models.User,email'
+    username = 'required|min_length:4'
+    email = 'required|email'
     password = 'required|min_length:8'
 
     messages = {

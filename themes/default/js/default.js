@@ -11,6 +11,9 @@
 
     hhcms.csrf_token = $("meta[name=CSRF_TOKEN]").attr('content');
 
+    // init the whole page popover
+    $('[data-toggle="popover"]').popover();
+
     hhcms.user_exists = function(username, email, success_callback, error_callback)
     {
         let payload = {
@@ -31,7 +34,11 @@
 
     };
 
-    hhcms.user_exists('test', 'sfdsdf');
+    $('#username').blur(function(){
+
+        let username = $('#username').val();
+        alert(username);
+    });
 
 })(window);
 
