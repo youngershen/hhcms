@@ -19,13 +19,13 @@
                 </div>
 
                 {% if username.required %}
-                <div class="form-group row">
-                    <div class="col-sm-9 offset-sm-3">
-                        <div class="alert alert-warning" role="alert">
-                            {{ username.required }}
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <div class="alert alert-warning" role="alert">
+                                {{ username.required }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label">{% trans 'Email' %}</label>
@@ -35,13 +35,13 @@
                     </div>
                 </div>
                 {% if email.required %}
-                <div class="form-group row">
-                    <div class="col-sm-9 offset-sm-3">
-                        <div class="alert alert-warning" role="alert">
-                            {{ email.required }}
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <div class="alert alert-warning" role="alert">
+                                {{ email.required }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
                 <div class="form-group row">
                     <label for="password" class="col-sm-3 col-form-label">{% trans 'Password' %}</label>
@@ -51,22 +51,22 @@
                     </div>
                 </div>
                 {% if password.required %}
-                <div class="form-group row">
-                    <div class="col-sm-9 offset-sm-3">
-                        <div class="alert alert-warning" role="alert">
-                            {{ password.required }}
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <div class="alert alert-warning" role="alert">
+                                {{ password.required }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
                 {% if password.min_length %}
-                <div class="form-group row">
-                    <div class="col-sm-9 offset-sm-3">
-                        <div class="alert alert-warning" role="alert">
-                            {{ password.min_length }}
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <div class="alert alert-warning" role="alert">
+                                {{ password.min_length }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
                 <div class="form-group row">
                     <div class="col-sm-9 offset-3">

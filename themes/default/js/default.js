@@ -1,6 +1,6 @@
 "use strict";
 
-(function(window){
+$(function(){
     const $ = window.$;
     $.meta = function(name){
         return $("meta[name=" + name + "]").attr('content');
@@ -35,12 +35,20 @@
     };
 
     $('#username').blur(function(){
-
         let username = $('#username').val();
-        alert(username);
+        hhcms.user_exists(username, '',
+            function(data)
+            {
+                if(!data.status){
+                    $('#username').popover({
+                        container: 'body',
+                        title: 'fuck',
+                        content: 'fuck you',
+                        trigger: 'focus'
+                    })
+                }
+            },
+         )
     });
+});
 
-})(window);
-
-
-hhcms.user_exists();
