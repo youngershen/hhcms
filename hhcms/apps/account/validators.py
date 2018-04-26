@@ -13,9 +13,10 @@ class Register(Validator):
     email = 'required|email'
     password = 'required|min_length:8'
 
-    messages = {
+    message = {
         'username': {
-            'required': _('username is required')
+            'required': _('username is required'),
+            'min_length': _('username is shorter than 4')
         },
         'email': {
             'required': _('email is required'),

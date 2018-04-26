@@ -33,9 +33,10 @@ class Register(View):
             message = {'ok': 'cool'}
         else:
             message = validator.get_message()
-            logger.debug(message)
+            message_plain = validator.get_message_plain()
+            logger.debug(message_plain)
 
-        return self.redirect(message=message)
+        return self.redirect(message=message_plain)
 
     def get_redirect_url(self, *args, **kwargs):
         return '/account/register'
