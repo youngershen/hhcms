@@ -33,22 +33,5 @@ $(function(){
         });
 
     };
-
-    $('#username').blur(function(){
-        let username = $('#username').val();
-        hhcms.user_exists(username, '',
-            function(data)
-            {
-                if(!data.status){
-                    $('#username').popover({
-                        container: 'body',
-                        title: 'fuck',
-                        content: 'fuck you',
-                        trigger: 'focus'
-                    })
-                }
-            },
-         )
-    });
 });
 
