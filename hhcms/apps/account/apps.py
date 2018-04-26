@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ContentConfig(AppConfig):
-    name = 'hhcms.apps.content'
+class AccountConfig(AppConfig):
+    name = 'account'

@@ -9,18 +9,20 @@ from validator import Validator
 
 
 class Register(Validator):
-    username = 'required|min_length:4'
-    email = 'required|email'
+    username = 'required|min_length:4|unique:account.User,username'
+    email = 'required|email|unique:account.User,email'
     password = 'required|min_length:8'
 
     message = {
         'username': {
             'required': _('username is required'),
-            'min_length': _('username is shorter than 4')
+            'min_length': _('username is shorter than 4'),
+            'unique': _('username already exists')
         },
         'email': {
             'required': _('email is required'),
-            'email': _('invalid email address')
+            'email': _('invalid email address'),
+            'unique': _('email already exists')
         },
         'password': {
             'required': _('password is required'),

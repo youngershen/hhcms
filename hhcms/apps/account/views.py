@@ -1,4 +1,6 @@
 import logging
+from django.utils.translation import ugettext as _
+from django.urls import reverse
 from django.db.models.query import Q
 from hhcms.apps.common.views import View as BaseView
 from hhcms.apps.common.mixins import Config
@@ -29,17 +31,22 @@ class Register(View):
         validator = RegisterValidator(request.POST)
         validator.validate()
         if validator.status:
-            logger.debug(request.POST)
-            message = {'ok': 'cool'}
+            self.register(validator)
+            url = reverse('account:login')
+            message = {'register': _('register succeed please login')}
         else:
-            message = validator.get_message()
-            message_plain = validator.get_message_plain()
-            logger.debug(message_plain)
+            url = reverse('account:register')
+            message = validator.get_message_plain()
 
-        return self.redirect(message=message_plain)
+        return self.redirect(url=url, message=message)
 
-    def get_redirect_url(self, *args, **kwargs):
-        return '/account/register'
+    @staticmethod
+    def register(validator):
+        username = validator.get('username')
+        email = validator.get('email')
+        password = validator.get('password')
+        user = User.objects.create_user(username, email, password)
+        return user
 
 
 class Login(View):
@@ -47,6 +54,8 @@ class Login(View):
 
     def get_context(self, request, *args, **kwargs):
         data = self.get_config()
+        message = self.get_message()
+        data.update(**message)
         return self.to_template(data)
 
     def post_context(self, request, *args, **kwargs):
