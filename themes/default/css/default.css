@@ -11,8 +11,19 @@ body
 
     margin-top: 2rem;
 }
+
 .register-form
 {
     padding: 3rem;
 }
 
+.login-input-div
+{
+
+    margin-top: 2rem;
+}
+
+.login-form
+{
+    padding: 3rem;
+}
