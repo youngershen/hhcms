@@ -10,7 +10,7 @@
         <div class="register-form bg-light col-lg-6 col-md-12 offset-lg-3">
             <form method="POST" action="{% url 'account:register' %}">
                 {% csrf_token %}
-                <div class="form-group row">
+                <div class="form-group row" id="username-row">
                     <label for="username" class="col-sm-3 col-form-label">{% trans 'Username' %}</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="username" id="username"
@@ -27,6 +27,8 @@
                         </div>
                     </div>
                 {% endfor %}
+
+
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label">{% trans 'Email' %}</label>
                     <div class="col-sm-9">
@@ -83,4 +85,13 @@
             </form>
         </div>
     </div>
+    {% verbatim %}
+    <script id="username-template" type="text/x-handlebars-template">
+        <div class="form-group row warning">
+            <div class="col-sm-9 offset-sm-3">
+                <div class="alert alert-warning" role="alert">{{ message }}</div>
+            </div>
+        </div>
+    </script>
+    {% endverbatim %}
 {% endblock body %}
