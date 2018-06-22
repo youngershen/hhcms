@@ -31,7 +31,6 @@ $(function () {
             'success': success_callback,
             'error': error_callback
         });
-
     };
 
 
