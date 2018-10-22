@@ -7,7 +7,36 @@ from hhcms.apps.common.models import Model
 
 
 class Manager(UserManager):
-    pass
+    def _create_user(self, username, password, **extra_fields):
+        username = self.model.normalize_username(username)
+        user = self.model(username=username, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, password, **extra_fields):
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(username, password, **extra_fields)
+
+    def create_staff(self, username, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', False)
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError(_('Staff must have is_staff=True'))
+
+        return self._create_user(username, password, **extra_fields)
+
+    def create_user(self, username, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError(_('Superuser must have is_staff=True'))
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError(_('Superuser must have is_superuser=True'))
+
+        return self._create_user(username, password, **extra_fields)
 
 
 class User(AbstractUser, Model):
@@ -23,9 +52,6 @@ class User(AbstractUser, Model):
                                  unique=True,
                                  null=True,
                                  verbose_name=_('Cellphone'), )
-
-    property = models.
-
 
     USERNAME_FIELD = 'username'
 
@@ -46,11 +72,11 @@ class User(AbstractUser, Model):
         verbose_name_plural = _('Users')
 
 
-class InfoRecord(Model):
+class UserProperty(Model):
     user = models.ForeignKey(User,
                              on_delete=models.CASCADE,
-                             related_name='info_records',
-                             related_query_name='info')
+                             related_name='properties',
+                             related_query_name='property')
 
     name = models.CharField(max_length=255,
                             db_index=True,
@@ -63,5 +89,5 @@ class InfoRecord(Model):
 
     class Meta:
         ordering = ['id']
-        verbose_name = _('Info Record')
-        verbose_name_plural = _('Info Records')
+        verbose_name = _('property')
+        verbose_name_plural = _('Properties')
